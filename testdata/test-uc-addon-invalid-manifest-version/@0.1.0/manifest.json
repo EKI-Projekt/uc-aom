@@ -1,0 +1,35 @@
+{
+  "manifestVersion": "0.3",
+  "version": "0.1.0-1",
+  "title": "test-uc-addon-invalid-manifest-version",
+  "description": "Run test add-on with an invalid manifest schema version",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-invalid-manifest": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-invalid-manifest-version:0.1",
+        "stdinOpen": true,
+        "tty": true,
+        "containerName": "uc-addon-status-invalid-manifest-version",
+        "command": [
+          "/bin/ash"
+        ]
+      }
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

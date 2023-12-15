@@ -1,0 +1,24 @@
+# Copyright 2022 - 2023 Weidmueller Interface GmbH & Co. KG <oss@weidmueller.com>
+#
+# SPDX-License-Identifier: MIT
+
+version: "3.8"
+services:
+  uc-aom:
+    build: ../../
+    working_dir: /go/src/uc-aom
+    entrypoint: ./scripts/docker-entrypoint.sh
+    environment:
+      - RUN_MODE=$RUN_MODE
+      - DEBIAN_FRONTEND=noninteractive
+    volumes:
+      - ../../:/go/src/uc-aom/
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /run/docker/plugins:/run/docker/plugins
+  registry:
+    image: registry:2.7
+    container_name: registry
+    environment:
+      - REGISTRY_STORAGE_DELETE_ENABLED=true
+    ports:
+      - "5000:5000"

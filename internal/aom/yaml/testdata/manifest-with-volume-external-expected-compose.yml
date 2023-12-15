@@ -1,0 +1,22 @@
+# Copyright 2023 Weidmueller Interface GmbH & Co. KG <oss@weidmueller.com>
+#
+# SPDX-License-Identifier: MIT
+
+version: "2"
+services:
+  cloudadapter:
+    image: anyviz/cloudadapter
+    restart: "no"
+    container_name: anyviz
+    ports:
+      - "8888:8888"
+    volumes:
+      - anyvizConfig:/etc/anyviz
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+volumes:
+  anyvizConfig:
+    external: true

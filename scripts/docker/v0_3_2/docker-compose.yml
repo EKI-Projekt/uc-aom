@@ -1,0 +1,32 @@
+# Copyright 2023 Weidmueller Interface GmbH & Co. KG <oss@weidmueller.com>
+#
+# SPDX-License-Identifier: MIT
+
+version: "2"
+services:
+  uc-aop:
+    build:
+      context: ../../
+      dockerfile: scripts/docker/v0_3_2/uc-aop.Dockerfile
+    stdin_open: true
+    tty: true
+  uc-aom:
+    build:
+      context: ../../
+      dockerfile: scripts/docker/v0_3_2/uc-aom.Dockerfile
+    environment:
+      - PORTAINER_CE_URI=portainer-service:9000
+      - GRPC_SERVER_URI=0.0.0.0:3800
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - localcatalog:/var/lib/uc-aom
+      - remotecatalog:/var/run/uc-aom
+      - proxyroutes:/var/lib/nginx:rw
+    tmpfs:
+      - /var/lib/uc-iam/permissions:exec
+  portainer-service:
+    image: portainer/portainer-ce:2.0.0
+    # hashed admin password - 'admin1234'
+    command: --admin-password '$$2y$$05$$B6JCe41.hBzMBQibuIOkMu33EBin2yg/9AjyMZtZnAh3aoD1/WrFm' -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

@@ -1,0 +1,74 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon settings",
+  "description": "Run test addon with settings",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-settings": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-settings:0.1",
+        "containerName": "uc-addon-settings",
+        "ports": [
+          "@HOST_PORT_INTERFACE@:18004:80"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "environmentVariables": [
+      {
+        "name": "param1",
+        "label": "Param 1",
+        "default": "aaa",
+        "required": true
+      },
+      {
+        "name": "param2",
+        "label": "Param 2",
+        "select": [
+          {
+            "value": "abc",
+            "label": "Abc"
+          },
+          {
+            "value": "qwe",
+            "label": "Qwe"
+          },
+          {
+            "value": "xyz",
+            "label": "Xyz",
+            "default": true
+          }
+        ]
+      },
+      {
+        "name": "param4",
+        "label": "Param 4",
+        "default": "p4 default",
+        "required": true
+      }
+    ]
+  },
+  "publish": {
+    "settingsui": {
+      "from": "http://@HOST_URL@:18004",
+      "to": "/test-settings"
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

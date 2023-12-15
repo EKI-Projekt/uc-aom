@@ -1,0 +1,20 @@
+{
+    "manifestVersion": "0.1",
+    "version": "0.1.0-1",
+    "title": "manifestMigration",
+    "description": "manifest for migration test",
+    "logo": "logo.png",
+    "services": {
+        "service": {
+            "type": "docker-compose",
+            "config": {
+                "image": "imagename:version"
+            }
+        }
+    },
+    "platform": [
+        "ucg",
+        "ucm"
+    ],
+    "vendor": {}
+}

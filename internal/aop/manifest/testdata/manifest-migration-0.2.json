@@ -1,0 +1,29 @@
+{
+    "manifestVersion": "0.2",
+    "version": "0.1.0-1",
+    "title": "manifestMigration",
+    "description": "manifest for migration test",
+    "logo": "logo.png",
+    "services": {
+        "service": {
+            "type": "docker-compose",
+            "config": {
+                "image": "imagename:version",
+                "restart": "no"
+            }
+        }
+    },
+    "platform": [
+        "ucg",
+        "ucm"
+    ],
+    "vendor": {
+        "name": "Weidmüller GmbH & Co KG",
+        "url": "https://www.weidmueller.de",
+        "email": "datenschutz@weidmueller.de",
+        "street": "Klingenbergstraße 26",
+        "zip": "32758",
+        "city": "Detmold",
+        "country": "Germany"
+    }
+}

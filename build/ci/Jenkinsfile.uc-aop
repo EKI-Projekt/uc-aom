@@ -1,0 +1,57 @@
+pipeline{
+  agent { label "ct08251" }
+
+  environment {
+    // Implicitly sets WMUCDEV_CREDENTIALS_USR and WMUCDEV_CREDENTIALS_PSW
+    // The Id links to credentials for user 'wmucdev'
+    WMUCDEV_CREDENTIALS = credentials('4c9c9baf-baab-46ea-91da-c7eefef6ebf5')
+    REGISTRY="wmucdev.azurecr.io"
+    // This pipeline is intended to be called via a multibranch pipeline job.
+    // Therefore GIT_BRANCH will only ever be a GIT tag.
+    // See: https://plugins.jenkins.io/git/#plugin-content-environment-variables
+    DOCKER_TAG="${GIT_BRANCH}"
+  }
+
+  stages{
+    stage("Configure"){
+      steps{
+        sh '''
+          docker login \
+            --username "${WMUCDEV_CREDENTIALS_USR}" \
+            --password "${WMUCDEV_CREDENTIALS_PSW}" \
+            "${REGISTRY}"
+        '''
+      }
+    }
+
+    stage("Build"){
+      steps{
+        sh 'BUILDX_BUILDER=$(docker buildx create --use --driver-opt network=host)'
+        sh '''
+          make DOCKER_TAG="${DOCKER_TAG}" \
+            -f tools/uc-aop/Makefile \
+            buildx_push
+        '''
+      }
+    }
+
+    stage("Push"){
+      steps{
+        sh '''
+          make REGISTRY="${REGISTRY}" \
+            DOCKER_TAG="${DOCKER_TAG}" \
+            -f tools/uc-aop/Makefile \
+            semver_push
+        '''
+      }
+    }
+  }
+  post{
+    always{
+      echo 'Stopping and removing buildx-Builder'
+      sh 'docker buildx rm -f ${BUILDX_BUILDER}'
+      echo 'Removing local tagged semver docker images'
+      sh 'docker rmi -f $(docker images "${REGISTRY}/u-control/uc-aom-packager" -a -q)'
+    }
+  }
+}

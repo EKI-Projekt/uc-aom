@@ -1,0 +1,27 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon no service",
+  "description": "Run test addon to with no service",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-no-service": {
+      "type": "docker-compose",
+      "config": {}
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

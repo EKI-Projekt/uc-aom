@@ -1,0 +1,39 @@
+{
+  "manifestVersion": "0.2",
+  "version": "0.1.0-1",
+  "title": "uc-addon posuma",
+  "description": "Posuma test app",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-posuma": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-posuma:0.1",
+        "containerName": "uc-addon-posuma",
+        "ports": [
+          "@HOST_PORT_INTERFACE@:18008:80"
+        ]
+      }
+    }
+  },
+  "publish": {
+    "provideui": {
+      "from": "http://@HOST_URL@:18008",
+      "to": "/test-ui"
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

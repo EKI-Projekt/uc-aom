@@ -1,0 +1,48 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon update-with-volume",
+  "description": "Test AddOn for testing update of an AddOn with volume",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-running": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-update-with-volume:0.1",
+        "stdinOpen": true,
+        "tty": true,
+        "containerName": "uc-addon-update-with-volume",
+        "command": [
+          "/bin/ash"
+        ],
+        "volumes": [
+          "uc-addon-test-volume-stay:/stayvolume"
+        ]
+      }
+    }
+  },
+  "environments": {
+    "update-with-volume": {
+      "type": "docker-compose",
+      "config": {
+        "volumes": {
+          "uc-addon-test-volume-stay": {}
+        }
+      }
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

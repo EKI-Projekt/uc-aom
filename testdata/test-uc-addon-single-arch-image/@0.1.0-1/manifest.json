@@ -1,0 +1,29 @@
+{
+  "manifestVersion": "0.2",
+  "version": "0.1.0-1",
+  "title": "uc-addon single-arch-image",
+  "description": "Test app with a single arch image",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-singlearch": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-single-arch-image:0.1.0-1"
+      }
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

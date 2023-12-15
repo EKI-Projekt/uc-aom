@@ -1,0 +1,34 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1-1",
+  "title": "AnyViz Cloud Adapter",
+  "description": "The AnyViz cloud solution allows you to remotely monitor, control and analyse industrial PLCs, sensors and meters.",
+  "logo": "logoanyviz.png",
+  "services": {
+    "cloudadapter": {
+      "type": "docker-compose",
+      "config": {
+        "image": "anyviz/cloudadapter",
+        "restart": "no",
+        "containerName": "anyviz",
+        "ports": ["8888:8888"],
+        "volumes": ["anyvizConfig:/etc/anyviz"],
+        "networkMode": "host",
+        "capAdd": ["NET_ADMIN"],
+        "devices": ["/dev/net/tun"]
+      }
+    }
+  },
+  "environments": {
+    "cloudadapter": {
+      "type": "docker-compose",
+      "config": {
+        "volumes": {
+          "anyvizConfig": {
+            "external": true
+          }
+        }
+      }
+    }
+  }
+}

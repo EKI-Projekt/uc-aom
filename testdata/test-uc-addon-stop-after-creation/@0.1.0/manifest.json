@@ -1,0 +1,31 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon stop-after-creation",
+  "description": "Test AddOn will stop after initial creation.",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-stop-after-creation": {
+      "type": "docker-compose",
+      "config": {
+        "entrypoint": "./exit-after-first-boot.sh",
+        "image": "test/uc-aom-stop-after-creation:0.1",
+        "restart": "no"
+      }
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

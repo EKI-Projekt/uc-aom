@@ -1,0 +1,8 @@
+# Copyright 2022 Weidmueller Interface GmbH & Co. KG <oss@weidmueller.com>
+#
+# SPDX-License-Identifier: MIT
+
+version: "3.8"
+services:
+  uc-aom:
+    entrypoint: ./scripts/docker-push-test-addons.sh

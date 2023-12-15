@@ -1,0 +1,30 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon status-stopped",
+  "description": "Run test addon with the status stopped",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-stopped": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-stopped:0.1",
+        "containerName": "uc-addon-status-stopped"
+      }
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon status-starting",
+  "description": "Run test addon with the status starting",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-starting": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-starting:0.1",
+        "stdinOpen": true,
+        "tty": true,
+        "containerName": "uc-addon-status-starting"
+      }
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

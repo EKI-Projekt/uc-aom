@@ -1,0 +1,39 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon-websocket",
+  "description": "AddOn that provides a websocket connection",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-websocket": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-websocket:0.1",
+        "containerName": "uc-addon-websocket",
+        "ports": [
+          "@HOST_PORT_INTERFACE@:18003:8080"
+        ]
+      }
+    }
+  },
+  "publish": {
+    "websocketui": {
+      "from": "http://@HOST_URL@:18003",
+      "to": "/websocket-ui"
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

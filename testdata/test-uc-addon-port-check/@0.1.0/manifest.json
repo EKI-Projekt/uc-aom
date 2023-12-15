@@ -1,0 +1,46 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon-port-check",
+  "description": "AddOn that checks if a port is available in the internal-bridge network",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-port-check": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-port-check:0.1",
+        "containerName": "uc-addon-port-check",
+        "networkMode": "internal-bridge",
+        "stdinOpen": true,
+        "tty": true,
+        "command": [
+          "/bin/ash"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "environmentVariables": [
+      {
+        "name": "PORT",
+        "label": "Port to check",
+        "default": "5555",
+        "required": true
+      }
+    ]
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

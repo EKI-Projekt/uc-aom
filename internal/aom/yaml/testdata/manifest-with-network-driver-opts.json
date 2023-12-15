@@ -1,0 +1,38 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1-1",
+  "title": "Network External",
+  "description": "Network External",
+  "logo": "network-external.png",
+  "services": {
+    "proxy": {
+      "type": "docker-compose",
+      "config": {
+        "build": "./proxy",
+        "networks": ["outside", "default"]
+      }
+    },
+    "app": {
+      "type": "docker-compose",
+      "config": {
+        "build": "./app",
+        "networks": ["default"]
+      }
+    }
+  },
+  "environments": {
+    "proxy": {
+      "type": "docker-compose",
+      "config": {
+        "networks": {
+          "outside": {
+            "driverOpts": {
+              "foo": "bar",
+              "baz": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

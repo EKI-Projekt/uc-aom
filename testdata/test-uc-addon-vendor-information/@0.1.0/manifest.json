@@ -1,0 +1,30 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon vendor-information",
+  "description": "Addon provides vendor information",
+  "logo": "logo.png",
+  "vendor": {
+    "name": "Test Name",
+    "url": "https://www.example.com",
+    "email": "test@mail.test",
+    "street": "Test Street",
+    "zip": "12345",
+    "city": "Test City",
+    "country": "Test Country"
+  },
+  "services": {
+    "ucaomtest-vendor-information": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-vendor-information:0.1",
+        "containerName": "uc-addon-vendor-information"
+      }
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ]
+}

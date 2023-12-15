@@ -1,0 +1,54 @@
+{
+  "manifestVersion": "0.2",
+  "version": "0.1.0-1",
+  "title": "uc-addon public-volume-access",
+  "description": "AddOn that use local-public-access volume driver",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-public-volume-access": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-public-volume-access:0.1",
+        "containerName": "uc-addon-public-volume-access",
+        "volumes": [
+          "uc-addon-public-volume-access:/data"
+        ],
+        "ports": [
+          "@HOST_PORT_INTERFACE@:18006:8080"
+        ]
+      }
+    }
+  },
+  "publish": {
+    "provideui": {
+      "from": "http://@HOST_URL@:18006",
+      "to": "/test-ui-public-volume-access"
+    }
+  },
+  "environments": {
+    "ucaomtest-public-volume-access": {
+      "type": "docker-compose",
+      "config": {
+        "volumes": {
+          "uc-addon-public-volume-access": {
+            "driver": "local-public-access"
+          }
+        }
+      }
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

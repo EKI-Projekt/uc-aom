@@ -1,0 +1,64 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon settings",
+  "description": "Run test addon with settings",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-running": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-settings:0.1",
+        "stdinOpen": true,
+        "tty": true,
+        "containerName": "uc-addon-settings",
+        "command": [
+          "/bin/ash"
+        ],
+        "environment": [
+          "PARAM_1=${param1:-cba}",
+          "TRUE_VAL=true",
+          "FALSE_VAL=false",
+          "YES_VAL=yes",
+          "NO_VAL=no",
+          "ZERO_VAL=0",
+          "ONE_VAL=1",
+          "SPECIAL_VALUE=TEST \"VALUE WITH = !"
+        ]
+      }
+    }
+  },
+  "settings": {
+    "environmentVariables": [
+      {
+        "name": "param1",
+        "label": "Param 1",
+        "default": "abc",
+        "required": true
+      },
+      {
+        "name": "param2",
+        "label": "Param 2",
+        "select": [
+          {
+            "value": "abc",
+            "label": "Abc"
+          },
+          {
+            "value": "qwe",
+            "label": "Qwe"
+          },
+          {
+            "value": "xyz",
+            "label": "Xyz",
+            "default": true
+          }
+        ]
+      }
+    ]
+  },
+  "platform": [
+    "ucg",
+    "ucm"
+  ]
+}

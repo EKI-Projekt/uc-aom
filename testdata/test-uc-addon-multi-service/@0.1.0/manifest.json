@@ -1,0 +1,43 @@
+{
+    "manifestVersion": "0.2",
+    "version": "0.1.0-1",
+    "title": "uc-addon multi service",
+    "description": "Run test addon with multi service",
+    "logo": "logo.png",
+    "services": {
+        "service-a": {
+            "type": "docker-compose",
+            "config": {
+                "image": "test/uc-aom-multi-service-a:0.1",
+                "stdinOpen": true,
+                "tty": true,
+                "containerName": "uc-addon-multi-service-a",
+        "command": ["/bin/ash"]
+            }
+        },
+        "service-b": {
+            "type": "docker-compose",
+            "config": {
+                "image": "test/uc-aom-multi-service-b:0.1",
+                "stdinOpen": true,
+                "tty": true,
+                "containerName": "uc-addon-multi-service-b",
+        "command": ["/bin/ash"]
+      }
+        }
+    },
+    "platform": [
+        "ucg",
+        "ucm",
+        "ucu"
+    ],
+    "vendor": {
+        "name": "Weidmüller GmbH & Co KG",
+        "url": "https://www.weidmueller.de",
+        "email": "datenschutz@weidmueller.de",
+        "street": "Klingenbergstraße 26",
+        "zip": "32758",
+        "city": "Detmold",
+        "country": "Germany"
+    }
+}

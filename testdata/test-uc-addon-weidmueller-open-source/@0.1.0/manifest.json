@@ -1,0 +1,54 @@
+{
+  "manifestVersion": "0.2",
+  "version": "0.1.0-1",
+  "title": "uc-addon weidmüller open source",
+  "description": "Run test addon of weidmüller open source",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-open-source": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-weidmueller-open-source:0.1",
+        "containerName": "uc-aom-weidmueller-open-source",
+        "volumes": [
+          "licenses:/licenses"
+        ],
+        "ports": [
+          "@HOST_PORT_INTERFACE@:18007:8080"
+        ]
+      }
+    }
+  },
+  "publish": {
+    "provideui": {
+      "from": "http://@HOST_URL@:18007",
+      "to": "/test-ui-open-source"
+    }
+  },
+  "environments": {
+    "ucaomtest-open-source": {
+      "type": "docker-compose",
+      "config": {
+        "volumes": {
+          "licenses": {
+            "driver": "local-public"
+          }
+        }
+      }
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller Open Source",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

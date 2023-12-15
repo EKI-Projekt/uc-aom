@@ -1,0 +1,45 @@
+# Copyright 2022 Weidmueller Interface GmbH & Co. KG <oss@weidmueller.com>
+#
+# SPDX-License-Identifier: MIT
+
+# Mac OS X files
+.DS_Store
+
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
+.glide/
+
+# Dependency directories (remove the comment below to include it)
+# vendor/
+
+# Build artifacts
+build/*
+!build/ci/
+cmd/uc-aom/.bin/
+tools/uc-aop/.bin/
+
+# Ignore generated grpc stubs
+internal/aom/grpc/addon_service_grpc.pb.go
+internal/aom/grpc/addon_service.pb.go
+
+# uc-aom-packager binary
+tools/uc-aom-packager
+
+# generated PNG files
+tests/**/*.png
+
+# generated SWU files
+*.swu
+*.tar

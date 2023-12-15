@@ -1,0 +1,11 @@
+{
+    "compatibility-version": "1.0",
+    "service": "uc-aom",
+    "group-display-name": "System settings",
+    "permissions": [
+        {
+            "id": "add-ons.manage",
+            "display-name": "Manage apps"
+        }
+    ]
+}

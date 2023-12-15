@@ -1,0 +1,38 @@
+# Copyright 2022 - 2023 Weidmueller Interface GmbH & Co. KG <oss@weidmueller.com>
+#
+# SPDX-License-Identifier: MIT
+
+version: "3.8"
+services:
+  registry:
+    image: registry:2.7
+    environment:
+      - REGISTRY_STORAGE_DELETE_ENABLED=true
+    ports:
+      - "5100:5000"
+    volumes:
+      - registry-data:/var/lib/registry
+  nginx:
+    build:
+      context: ../../
+      dockerfile: scripts/docker/nginx.Dockerfile
+    container_name: uc-aom-nginx
+    volumes:
+      - proxyroutes:/var/lib/nginx:ro
+      - localcatalog:/var/lib/uc-aom:ro
+      - remotecatalog:/var/run/uc-aom:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  swupdate:
+    build: ../swupdate
+    command: swupdate -v --webserver "--port 8090 --document-root /usr/share/swupdate/www"
+    volumes:
+      - cache:/var/cache/uc-aom
+      - swupdate:/tmp
+volumes:
+  localcatalog:
+  remotecatalog:
+  proxyroutes:
+  cache:
+  swupdate:
+  registry-data:

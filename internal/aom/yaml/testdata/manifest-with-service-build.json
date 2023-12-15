@@ -1,0 +1,23 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1-1",
+  "title": "Network External",
+  "description": "Network External",
+  "logo": "network-external.png",
+  "services": {
+    "app": {
+      "type": "docker-compose",
+      "config": {
+        "build": {
+          "context": ".",
+          "args": {
+            "buildno": 1,
+            "gitcommithash": "cdc3b19"
+          },
+          "cacheFrom": ["alpine:latest", "corp/web_app:3.14"],
+          "extraHosts": ["somehost:162.242.195.82", "otherhost:50.31.209.229"]
+        }
+      }
+    }
+  }
+}

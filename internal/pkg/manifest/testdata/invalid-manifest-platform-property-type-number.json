@@ -1,0 +1,25 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1-1",
+  "title": "myservice",
+  "description": "abcdasdfasf",
+  "logo": "images/logo.png",
+  "services": {
+    "service1": {
+      "type": "docker-compose",
+      "config": {
+        "image": "imagename1:version"
+      }
+    }
+  },
+  "platform": 1,
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

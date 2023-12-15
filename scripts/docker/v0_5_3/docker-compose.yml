@@ -1,0 +1,28 @@
+# Copyright 2023 Weidmueller Interface GmbH & Co. KG <oss@weidmueller.com>
+#
+# SPDX-License-Identifier: MIT
+
+version: "2"
+services:
+  uc-aop:
+    build:
+      context: ../../
+      dockerfile: scripts/docker/v0_5_3/uc-aop.Dockerfile
+    stdin_open: true
+    tty: true
+  uc-aom:
+    build:
+      context: ../../
+      dockerfile: scripts/docker/v0_5_3/uc-aom.Dockerfile
+    environment:
+      - GRPC_SERVER_URI=0.0.0.0:3800
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker:/var/lib/docker
+      - localcatalog:/var/lib/uc-aom
+      - remotecatalog:/var/run/uc-aom
+      - proxyroutes:/var/lib/nginx:rw
+      - cache:/var/cache/uc-aom
+      - swupdate:/tmp
+    tmpfs:
+      - /var/lib/uc-iam/permissions:exec

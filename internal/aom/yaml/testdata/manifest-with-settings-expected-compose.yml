@@ -1,0 +1,24 @@
+# Copyright 2023 Weidmueller Interface GmbH & Co. KG <oss@weidmueller.com>
+#
+# SPDX-License-Identifier: MIT
+
+version: "2"
+services:
+  ucaomtest-running:
+    command:
+        - /bin/ash
+    container_name: uc-addon-settings
+    environment:
+        FALSE_VAL: "false"
+        SPECIAL_VALUE: TEST "VALUE WITH = !
+        NO_VAL: "no"
+        ONE_VAL: "1"
+        PARAM_1: ${param1:-cba}
+        TRUE_VAL: "true"
+        YES_VAL: "yes"
+        ZERO_VAL: "0"
+        param1: abc
+        param2: xyz
+    image: test/uc-aom-settings:0.1
+    stdin_open: true
+    tty: true

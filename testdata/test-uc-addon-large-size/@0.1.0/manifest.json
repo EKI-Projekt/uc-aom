@@ -1,0 +1,35 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon large",
+  "description": "Run test addon with a large image",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-running": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-large-addon:0.1",
+        "stdinOpen": true,
+        "tty": true,
+        "containerName": "uc-addon-large",
+        "command": [
+          "/bin/bash"
+        ]
+      }
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

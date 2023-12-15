@@ -1,0 +1,36 @@
+{
+    "manifestVersion": "0.1",
+    "version": "0.1.0-1",
+    "title": "uc-addon-communication-sender",
+    "description": "AddOn that tests communication between AddOns",
+    "logo": "logo.png",
+    "services": {
+        "ucaomtest-addon-communication-sender": {
+            "type": "docker-compose",
+            "config": {
+                "image": "test/uc-aom-communication-sender:0.1",
+                "containerName": "uc-addon-communication-sender",
+                "networkMode": "internal-bridge",
+                "stdinOpen": true,
+                "tty": true,
+                "command": [
+                    "/bin/ash"
+                ]
+            }
+        }
+    },
+    "platform": [
+        "ucg",
+        "ucm",
+        "ucu"
+    ],
+    "vendor": {
+        "name": "Weidmüller GmbH & Co KG",
+        "url": "https://www.weidmueller.de",
+        "email": "datenschutz@weidmueller.de",
+        "street": "Klingenbergstraße 26",
+        "zip": "32758",
+        "city": "Detmold",
+        "country": "Germany"
+    }
+}

@@ -1,0 +1,15 @@
+software =
+{
+	version = "0.1.0";
+	hardware-compatibility: [ "#RE:.*" ];
+	bootloader_state_marker = false;
+	bootloader_transaction_marker = false;
+
+	files: (
+		{
+			filename = "payload.tar";
+			path = "/var/cache/uc-aom/drop-in";
+			type = "archive";
+		}
+	);
+}

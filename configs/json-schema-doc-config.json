@@ -1,0 +1,16 @@
+{
+  "template_name": "md",
+  "markdown_options": {
+    "fenced-code-blocks": {
+      "break-on-newline": true,
+      "cssclass": "highlight jumbotron",
+      "tables": null
+    },
+    "tables": null
+  },
+  "template_md_options": {
+    "badge_as_image": false,
+    "show_heading_numbers": true,
+    "show_array_restrictions": true
+  }
+}

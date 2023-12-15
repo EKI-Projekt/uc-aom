@@ -1,0 +1,41 @@
+{
+  "manifestVersion": "0.2",
+  "version": "0.1.0-1",
+  "title": "uc-addon ssh-root-access",
+  "description": "Run addon can only be installed if ssh root access is enabled",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-ssh-access": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-ssh-access:0.1",
+        "stdinOpen": true,
+        "tty": true,
+        "containerName": "uc-addon-ssh-root-access",
+        "command": [
+          "/bin/ash"
+        ]
+      }
+    }
+  },
+  "features": [
+    {
+      "name": "ucontrol.software.root_access",
+      "required": true
+    }
+  ],
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1-1",
+  "title": "myservice",
+  "description": "abcdasdfasf",
+  "logo": "images/logo.png",
+  "vendor": {
+    "name": "Abc",
+    "url": "https://www.abc.de",
+    "email": "contact@abc.de",
+    "street": "alphabetstr. 10",
+    "zip": "54321",
+    "city": "Hanau",
+    "country": "Germany"
+  },
+  "services": {
+    "service1": {
+      "type": "docker-compose",
+      "config": {
+        "image": "imagename1:version"
+      }
+    }
+  },
+  "platform": ["ucg", "ucm"]
+}

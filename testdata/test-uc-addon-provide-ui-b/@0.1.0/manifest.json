@@ -1,0 +1,39 @@
+{
+  "manifestVersion": "0.1",
+  "version": "0.1.0-1",
+  "title": "uc-addon provide-ui b",
+  "description": "AddOn that provides an UI that has the same publish key as the test-uc-addon-provide-ui",
+  "logo": "logo.png",
+  "services": {
+    "ucaomtest-provide-ui": {
+      "type": "docker-compose",
+      "config": {
+        "image": "test/uc-aom-provide-ui-b:0.1",
+        "containerName": "uc-addon-provide-ui-b",
+        "ports": [
+          "@HOST_PORT_INTERFACE@:18003:80"
+        ]
+      }
+    }
+  },
+  "publish": {
+    "provideui": {
+      "from": "http://@HOST_URL@:18003",
+      "to": "/test-ui-b"
+    }
+  },
+  "platform": [
+    "ucg",
+    "ucm",
+    "ucu"
+  ],
+  "vendor": {
+    "name": "Weidmüller GmbH & Co KG",
+    "url": "https://www.weidmueller.de",
+    "email": "datenschutz@weidmueller.de",
+    "street": "Klingenbergstraße 26",
+    "zip": "32758",
+    "city": "Detmold",
+    "country": "Germany"
+  }
+}
