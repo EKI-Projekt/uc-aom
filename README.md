@@ -17,8 +17,8 @@ This repository hosts the backend service/daemon (`uc-aomd`), the command line t
 
 This project is currently maintained by:
 
-- Michael Brockmeyer (w010261)
-- Felix Aldenburg (w100130)
+- Michael Brockmeyer
+- Felix Aldenburg
 
 Please contact the persons above for merge requests or any questions regarding this repository.
 
