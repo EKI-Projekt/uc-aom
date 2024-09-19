@@ -13,15 +13,6 @@ This repository hosts the backend service/daemon (`uc-aomd`), the command line t
 
 [[_TOC_]]
 
-## Maintainers
-
-This project is currently maintained by:
-
-- Michael Brockmeyer
-- Felix Aldenburg
-
-Please contact the persons above for merge requests or any questions regarding this repository.
-
 ## Prerequisites in production
 - Install and start [SWUpdate](https://sbabic.github.io/swupdate/swupdate.html) to install apps via a swu file.
 - Install and start Nginx as a reverse proxy to integrate app web UIs.
